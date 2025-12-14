@@ -65,7 +65,9 @@
                 <h3>Ваша машина в надежных руках!</h3>
               </div>
               <div class="req_left_centre">
-                <button class="req_btn">ОСТАВИТЬ ЗАЯВКУ</button>
+                <button onclick="say('Заявка отправлена')" class="req_btn">
+                  ОСТАВИТЬ ЗАЯВКУ
+                </button>
               </div>
               <div class="requestbottom2">
                 <div class="req_left_bottom">
@@ -115,7 +117,9 @@
                   placeholder="+7 (999) 999-99-99"
                 />
               </div>
-              <button class="con_btn req_btn">ЗАПИСАТЬСЯ</button>
+              <button onclick="say('Вы записаны')" class="con_btn req_btn">
+                ЗАПИСАТЬСЯ
+              </button>
             </div>
             <div class="consult_bottom">
               <p>
@@ -411,7 +415,14 @@
                   placeholder="+7 (999) 999-99-99"
                 />
               </div>
-              <button type="submit" id="req" class="cont_btn">ОТПРАВИТЬ</button>
+              <button
+                type="submit"
+                onclick="say('Заявка отправлена')"
+                id="req"
+                class="cont_btn"
+              >
+                ОТПРАВИТЬ
+              </button>
               <p>
                 Оставляя заявку, вы даете согласие на обработку персональных
                 данных
@@ -426,7 +437,9 @@
             <div class="loc">
               <img src="./assets/svg/location.svg" alt="" />
             </div>
-            <button class="map_btn">Построить маршрут</button>
+            <button class="map_btn" onclick="say('Маршрут построен')">
+              Построить маршрут
+            </button>
           </div>
         </div>
       </section>
@@ -472,6 +485,10 @@
     </footer>
 
     <script>
+      function say(speach) {
+        speechSynthesis.speak(new SpeechSynthesisUtterance(`${speach}`));
+      }
+
       const btn = document.getElementById("req");
 
       btn.addEventListener("click", () => {
